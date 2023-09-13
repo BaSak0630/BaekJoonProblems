@@ -1,0 +1,60 @@
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
+/**
+ * Back_10808
+ */
+public class baekjoon_10808
+ {
+
+    public static void main(String[] args)
+    {
+        String buffer = "";
+        int [] E = new int [26];
+        StringBuilder sb = new StringBuilder();
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        try 
+        {
+            buffer = br.readLine();
+        } 
+        catch (Exception e)
+        {
+          
+        }
+
+        for (int i = 0; i < buffer.length(); i++)
+        {
+            E[(int) buffer.charAt(i) - 97] += 1;
+        }
+
+        for (int i = 0; i < E.length; i++)
+        {
+            sb.append(E[i]);
+            sb.append(" ");
+        }
+       
+        System.out.println(sb);
+    }
+    
+}
+
+
+/*
+ * import java.io.*;
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int[] arr = new int[26];  //알파벳 개수를 저장하는 배열
+        String s = br.readLine();  //단어 입력받기
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+            arr[c - 97]++;  //개수 1씩 늘려주기
+        }
+        for (int i = 0; i < 26; i++) {
+            System.out.print(arr[i] + " ");
+        }
+    }
+}
+ */
