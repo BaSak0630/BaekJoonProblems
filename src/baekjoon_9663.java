@@ -1,32 +1,59 @@
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.util.Scanner;
 import java.util.StringTokenizer;
 
 public class baekjoon_9663 {
-    static int N;
-    static int [][] bord;
-    static boolean [][] attackable;
-    static int count;
+    public static int[] arr;
+    public static int N;
+    public static int count = 0;
 
-    public static void main(String[] args) throws Exception{
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringTokenizer st = new StringTokenizer(br.readLine());
+    public static void main(String[] args) {
 
-        N =Integer.parseInt(st.nextToken());
-        bord = new int[N][N];
-        attackable = new boolean[N][N];
+        Scanner in = new Scanner(System.in);
+        N = in.nextInt();
+        arr = new int[N];
 
-        back(0);
+        nQueen(0);
+        System.out.println(count);
+
     }
-    private static void back(int degree)
-    {
-        if(degree == N) {
+
+    public static void nQueen(int depth) {
+        // 모든 원소를 다 채운 상태면 count 증가 및 return
+        if (depth == N) {
+            count++;
             return;
         }
-        for(int i = 0; i < N; i++){
 
+        for (int i = 0; i < N; i++) {
+            arr[depth] = i;
+            // 놓을 수 있는 위치일 경우 재귀호출
+            if (Possibility(depth)) {
+                nQueen(depth + 1);
+            }
         }
-        back(degree+1);
+
+    }
+
+    public static boolean Possibility(int col) {
+
+        for (int i = 0; i < col; i++) {
+            // 해당 열의 행과 i열의 행이 일치할경우 (같은 행에 존재할 경우)
+            if (arr[col] == arr[i]) {
+                return false;
+            }
+
+            /*
+             * 대각선상에 놓여있는 경우
+             * (열의 차와 행의 차가 같을 경우가 대각선에 놓여있는 경우다)
+             */
+            else if (Math.abs(col - i) == Math.abs(arr[col] - arr[i])) {
+                return false;
+            }
+        }
+
+        return true;
     }
 }
 

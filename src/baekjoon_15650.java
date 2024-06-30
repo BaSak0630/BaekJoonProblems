@@ -4,8 +4,8 @@ import java.util.StringTokenizer;
 
 public class baekjoon_15650 {
     static int N,M;
-    static int [] arr = new int[9];
-    static boolean[] isUsed = new boolean[9];
+    static int [] arr = new int[10];
+    static boolean[] isUsed = new boolean[10];
 
     public static void main(String[] args) throws Exception{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
