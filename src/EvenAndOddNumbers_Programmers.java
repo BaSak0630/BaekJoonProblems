@@ -5,11 +5,11 @@ public class EvenAndOddNumbers_Programmers {
             int sNumCount = 0;
             int dNumCount = 0;
             int listLength = num_list.length;
-            for(int i = 0; i < listLength; i++){
-                if(num_list[i] % 2 == 0){
+            for (int i = 0; i < listLength; i++) {
+                if (num_list[i] % 2 == 0) {
                     dNumCount++;
                 }
-                if(num_list[i] % 2 != 0){
+                if (num_list[i] % 2 != 0) {
                     sNumCount++;
                 }
             }
